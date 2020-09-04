@@ -11,13 +11,8 @@ public class Entry implements Serializable {
     private Long id;
     private String image;
 
-
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Coords coords;
-    private String caption;
-    private String version;
-    private String identifier;
-    private LocalDateTime date;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Coordinate centroidCoordinates;
@@ -34,51 +29,104 @@ public class Entry implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Quaternions attitudeQuarternions;
 
+    private String caption;
+    private String version;
+    private String identifier;
+    private LocalDateTime date;
+
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getImage() {
         return image;
     }
 
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public Coords getCoords() {
         return coords;
     }
 
-    public String getCaption() {
-        return caption;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public String getIdentifier() {
-        return identifier;
-    }
-
-    public LocalDateTime getDate() {
-        return date;
+    public void setCoords(Coords coords) {
+        this.coords = coords;
     }
 
     public Coordinate getCentroidCoordinates() {
         return centroidCoordinates;
     }
 
+    public void setCentroidCoordinates(Coordinate centroidCoordinates) {
+        this.centroidCoordinates = centroidCoordinates;
+    }
+
     public Position getDscovrJ2000Position() {
         return dscovrJ2000Position;
+    }
+
+    public void setDscovrJ2000Position(Position dscovrJ2000Position) {
+        this.dscovrJ2000Position = dscovrJ2000Position;
     }
 
     public Position getLunarJ2000Position() {
         return lunarJ2000Position;
     }
 
+    public void setLunarJ2000Position(Position lunarJ2000Position) {
+        this.lunarJ2000Position = lunarJ2000Position;
+    }
+
     public Position getSunJ2000Position() {
         return sunJ2000Position;
     }
 
+    public void setSunJ2000Position(Position sunJ2000Position) {
+        this.sunJ2000Position = sunJ2000Position;
+    }
+
     public Quaternions getAttitudeQuarternions() {
         return attitudeQuarternions;
+    }
+
+    public void setAttitudeQuarternions(Quaternions attitudeQuarternions) {
+        this.attitudeQuarternions = attitudeQuarternions;
+    }
+
+    public String getCaption() {
+        return caption;
+    }
+
+    public void setCaption(String caption) {
+        this.caption = caption;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 }

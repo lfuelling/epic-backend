@@ -1,12 +1,12 @@
 package sh.lrk.epic.epicbackend;
 
-import com.google.gson.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import sh.lrk.epic.epicbackend.properties.DataProperties;
+import sh.lrk.epic.epicbackend.entities.entry.Coordinate;
 
-import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -18,11 +18,12 @@ public class EpicBackendApplication {
     }
 
 
-
     public static Gson getGson(String dateFormat) {
-        return new GsonBuilder().registerTypeAdapter(LocalDateTime.class,
-                (JsonDeserializer<LocalDateTime>) (json, type, jsonDeserializationContext) ->
-                        LocalDateTime.parse(json.getAsJsonPrimitive().getAsString(), DateTimeFormatter.ofPattern(dateFormat))).create();
+        return new GsonBuilder()
+                .registerTypeAdapter(LocalDateTime.class,
+                        (JsonDeserializer<LocalDateTime>) (json, type, jsonDeserializationContext) ->
+                                LocalDateTime.parse(json.getAsJsonPrimitive().getAsString(), DateTimeFormatter.ofPattern(dateFormat)))
+                .create();
     }
 
 }

@@ -1,0 +1,24 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Entries</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>All Entries</h1>
+
+    <p class="lead">You can see all available entries below.</p>
+    <ul class="entries" th:if="${not #lists.isEmpty(entries)}">
+        <li th:each="entry: ${entries}">
+            <a th:href="@{'/entry/' + ${entry.identifier}}" th:text="${entry.identifier}"></a>&nbsp;(<a th:href="@{'/image/' + ${entry.image} + '.png'}">View Image</a>)
+        </li>
+    </ul>
+
+</div>
+</body>
+</html>

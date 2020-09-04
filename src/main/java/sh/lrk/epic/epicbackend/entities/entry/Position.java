@@ -11,6 +11,7 @@ public class Position implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private Float x;
     private Float y;
     private Float z;
