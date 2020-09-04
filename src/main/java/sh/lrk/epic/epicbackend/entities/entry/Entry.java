@@ -1,9 +1,6 @@
 package sh.lrk.epic.epicbackend.entities.entry;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -13,15 +10,28 @@ public class Entry implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String image;
+
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Coords coords;
     private String caption;
     private String version;
     private String identifier;
     private LocalDateTime date;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Coordinate centroidCoordinates;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Position dscovrJ2000Position;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Position lunarJ2000Position;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Position sunJ2000Position;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Quaternions attitudeQuarternions;
 
     public Long getId() {

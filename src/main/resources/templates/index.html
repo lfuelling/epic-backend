@@ -1,76 +1,22 @@
-<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Manual Upload</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: #000;
-            color: #fff;
-            font-family: "Fira Code Retina", "Fira Code", monospace;
-        }
-
-        h1 {
-            font-weight: 100;
-        }
-
-        p.lead {
-            margin-bottom: 16px;
-        }
-
-        .wrapper {
-            width: 80vw;
-            max-width: 80vw;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-        }
-
-        form input:not(:last-child),
-        form textarea {
-            margin-bottom: 16px;
-        }
-
-        form label {
-            margin-bottom: 8px;
-        }
-
-        form textarea {
-            resize: vertical;
-            background: #000;
-            color: #fff;
-            border-color: #fff;
-            font-family: "Fira Code Retina", "Fira Code", monospace;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
 <div class="wrapper">
-    <h1>Manual Upload</h1>
-    <div th:if="${message}">
-        <p th:text="${message}"></p>
-    </div>
+    <h1>EPIC-Backend</h1>
 
-    <p class="lead">You can use this form to manually upload data to the backend.</p>
-    <form method="POST" enctype="multipart/form-data" action="/upload">
-        <label for="image">File to upload:</label>
-        <input type="file" name="image" id="image" />
-        <label for="json">JSON to upload:</label>
-        <textarea name="json" id="json" cols="50" rows="20" placeholder="Paste JSON here..."></textarea>
-        <input type="submit" value="Upload" />
-    </form>
+    <p class="lead">This is a backend for data scraped from <a href="https://epic.gsfc.nasa.gov/">DSCOVR/EPIC</a>.</p>
+    <ul>
+        <li><a href="/upload">Upload Data Manually</a></li>
+        <li><a href="/entries">See available entries</a></li>
+    </ul>
 
 </div>
 </body>

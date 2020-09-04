@@ -1,0 +1,29 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manual Upload</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>Manual Upload</h1>
+    <div th:if="${message}">
+        <p th:text="${message}"></p>
+    </div>
+
+    <p class="lead">You can use this form to manually upload data to the backend.</p>
+    <form method="POST" enctype="multipart/form-data" action="/save">
+        <label for="image">File to upload:</label>
+        <input type="file" name="image" id="image" />
+        <label for="json">JSON to upload:</label>
+        <textarea name="json" id="json" cols="50" rows="20" placeholder="Paste JSON here..."></textarea>
+        <input type="submit" value="Upload" />
+    </form>
+
+</div>
+</body>
+</html>

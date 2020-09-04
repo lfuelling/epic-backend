@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    color: #fff;
+    font-family: "Fira Code Retina", "Fira Code", monospace;
+}
+
+h1 {
+    font-weight: 100;
+}
+
+p.lead {
+    margin-bottom: 16px;
+}
+
+.wrapper {
+    width: 80vw;
+    max-width: 80vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+form input:not(:last-child),
+form textarea {
+    margin-bottom: 16px;
+}
+
+form label {
+    margin-bottom: 8px;
+}
+
+form textarea {
+    resize: vertical;
+    background: #000;
+    color: #fff;
+    border-color: #fff;
+    font-family: "Fira Code Retina", "Fira Code", monospace;
+}
+
+a, a:visited {
+    color: #fff;
+}

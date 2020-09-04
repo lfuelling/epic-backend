@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 
 @Component
-@ConfigurationProperties(prefix = "storage")
+@ConfigurationProperties(prefix = "epic.storage")
 public class StorageProperties {
 
     private String location;
