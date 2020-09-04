@@ -9,9 +9,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("user").password("{noop}password").roles("USER")
-                .and()
-                .withUser("admin").password("{noop}password").roles("USER", "ADMIN");
+                .withUser("user").password("{noop}password").roles("USER", "ADMIN");
+                //.and()
+                //.withUser("admin").password("{noop}password").roles("USER", "ADMIN");
 
     }
 
@@ -22,11 +22,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic()
             .and()
             .authorizeRequests()
-            .antMatchers(HttpMethod.GET, "/books/**").hasRole("USER")
-            .antMatchers(HttpMethod.POST, "/books").hasRole("ADMIN")
-            .antMatchers(HttpMethod.PUT, "/books/**").hasRole("ADMIN")
-            .antMatchers(HttpMethod.PATCH, "/books/**").hasRole("ADMIN")
-            .antMatchers(HttpMethod.DELETE, "/books/**").hasRole("ADMIN")
+            .antMatchers(HttpMethod.GET, "/image/**").hasRole("USER")
+            .antMatchers(HttpMethod.GET, "/entry/**").hasRole("USER")
+            .antMatchers(HttpMethod.GET, "/entries").hasRole("USER")
+            .antMatchers(HttpMethod.POST, "/upload").hasRole("USER")
             .and()
             .csrf().disable()
             .formLogin().disable();

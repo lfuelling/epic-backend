@@ -27,7 +27,7 @@ public class UploadController {
         this.storageService = storageService;
     }
 
-    @PostMapping("/save")
+    @PostMapping("/upload")
     public String postImage(@RequestParam("image") MultipartFile file,
                                     @RequestParam("json") Entry entry,
                                     RedirectAttributes redirectAttributes) {
