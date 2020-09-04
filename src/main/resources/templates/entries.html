@@ -15,7 +15,7 @@
     <p class="lead">You can see all available entries below.</p>
     <ul class="entries" th:if="${not #lists.isEmpty(entries)}">
         <li th:each="entry: ${entries}">
-            <a th:href="@{'/entry/' + ${entry.identifier}}" th:text="${entry.identifier}"></a>&nbsp;(<a th:href="@{'/image/' + ${entry.image} + '.png'}">View Image</a>)
+            <a th:href="@{'/api/entry/' + ${entry.identifier}}" th:text="${entry.identifier}"></a>&nbsp;(<a th:href="@{'/image/' + ${entry.image} + '.png'}">View Image</a>)
         </li>
     </ul>
 

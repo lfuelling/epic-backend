@@ -129,4 +129,20 @@ public class Entry implements Serializable {
     public void setDate(LocalDateTime date) {
         this.date = date;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Entry &&
+                ((caption != null && caption.equals(((Entry) obj).caption)) || (((Entry) obj).caption == null)) &&
+                ((date != null && date.equals(((Entry) obj).date)) || (((Entry) obj).date == null)) &&
+                ((identifier != null && identifier.equals(((Entry) obj).identifier)) || (((Entry) obj).identifier == null)) &&
+                ((version != null && version.equals(((Entry) obj).version)) || (((Entry) obj).version == null)) &&
+                ((attitudeQuarternions != null && attitudeQuarternions.equals(((Entry) obj).attitudeQuarternions)) || (((Entry) obj).attitudeQuarternions == null)) &&
+                ((dscovrJ2000Position != null && dscovrJ2000Position.equals(((Entry) obj).dscovrJ2000Position)) || (((Entry) obj).dscovrJ2000Position == null)) &&
+                ((lunarJ2000Position != null && lunarJ2000Position.equals(((Entry) obj).lunarJ2000Position)) || (((Entry) obj).lunarJ2000Position == null)) &&
+                ((sunJ2000Position != null && sunJ2000Position.equals(((Entry) obj).sunJ2000Position)) || (((Entry) obj).sunJ2000Position == null)) &&
+                ((centroidCoordinates != null && centroidCoordinates.equals(((Entry) obj).centroidCoordinates)) || (((Entry) obj).centroidCoordinates == null)) &&
+                ((coords != null && coords.equals(((Entry) obj).coords)) || (((Entry) obj).coords == null)) &&
+                ((id != null && id.equals(((Entry) obj).id)) || (((Entry) obj).id == null));
+    }
 }

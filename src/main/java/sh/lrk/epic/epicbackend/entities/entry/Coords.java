@@ -71,4 +71,15 @@ public class Coords implements Serializable {
     public void setAttitudeQuarternions(Quaternions attitudeQuarternions) {
         this.attitudeQuarternions = attitudeQuarternions;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Coords &&
+                ((attitudeQuarternions != null && attitudeQuarternions.equals(((Coords) obj).attitudeQuarternions)) || (((Coords) obj).attitudeQuarternions == null)) &&
+                ((dscovrJ2000Position != null && dscovrJ2000Position.equals(((Coords) obj).dscovrJ2000Position)) || (((Coords) obj).dscovrJ2000Position == null)) &&
+                ((lunarJ2000Position != null && lunarJ2000Position.equals(((Coords) obj).lunarJ2000Position)) || (((Coords) obj).lunarJ2000Position == null)) &&
+                ((sunJ2000Position != null && sunJ2000Position.equals(((Coords) obj).sunJ2000Position)) || (((Coords) obj).sunJ2000Position == null)) &&
+                ((centroidCoordinates != null && centroidCoordinates.equals(((Coords) obj).centroidCoordinates)) || (((Coords) obj).centroidCoordinates == null)) &&
+                ((coordsId != null && coordsId.equals(((Coords) obj).coordsId)) || (((Coords) obj).coordsId == null));
+    }
 }

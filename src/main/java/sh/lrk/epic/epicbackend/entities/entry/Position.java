@@ -12,9 +12,9 @@ public class Position implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Float x;
-    private Float y;
-    private Float z;
+    private Double x;
+    private Double y;
+    private Double z;
 
     public Long getId() {
         return id;
@@ -24,27 +24,36 @@ public class Position implements Serializable {
         this.id = id;
     }
 
-    public Float getX() {
+    public Double getX() {
         return x;
     }
 
-    public void setX(Float x) {
+    public void setX(Double x) {
         this.x = x;
     }
 
-    public Float getY() {
+    public Double getY() {
         return y;
     }
 
-    public void setY(Float y) {
+    public void setY(Double y) {
         this.y = y;
     }
 
-    public Float getZ() {
+    public Double getZ() {
         return z;
     }
 
-    public void setZ(Float z) {
+    public void setZ(Double z) {
         this.z = z;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Position &&
+                ((id != null && id.equals(((Position) obj).id)) || (((Position) obj).id == null)) &&
+                ((x != null && x.equals(((Position) obj).x)) || (((Position) obj).x == null)) &&
+                ((y != null && y.equals(((Position) obj).y)) || (((Position) obj).y == null)) &&
+                ((z != null && z.equals(((Position) obj).z)) || (((Position) obj).z == null));
     }
 }

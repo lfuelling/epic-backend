@@ -11,8 +11,8 @@ public class Coordinate implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Float lat;
-    private Float lon;
+    private Double lat;
+    private Double lon;
 
     public Long getId() {
         return id;
@@ -22,19 +22,27 @@ public class Coordinate implements Serializable {
         this.id = id;
     }
 
-    public Float getLat() {
+    public Double getLat() {
         return lat;
     }
 
-    public void setLat(Float lat) {
+    public void setLat(Double lat) {
         this.lat = lat;
     }
 
-    public Float getLon() {
+    public Double getLon() {
         return lon;
     }
 
-    public void setLon(Float lon) {
+    public void setLon(Double lon) {
         this.lon = lon;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Coordinate &&
+                ((id != null && id.equals(((Coordinate) obj).id)) || (((Coordinate) obj).id == null)) &&
+                ((lat != null && lat.equals(((Coordinate) obj).lat)) || (((Coordinate) obj).lat == null)) &&
+                ((id != null && id.equals(((Coordinate) obj).id)) || (((Coordinate) obj).id == null));
     }
 }
