@@ -1,0 +1,77 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Manual Upload</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            color: #fff;
+            font-family: "Fira Code Retina", "Fira Code", monospace;
+        }
+
+        h1 {
+            font-weight: 100;
+        }
+
+        p.lead {
+            margin-bottom: 16px;
+        }
+
+        .wrapper {
+            width: 80vw;
+            max-width: 80vw;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        form input:not(:last-child),
+        form textarea {
+            margin-bottom: 16px;
+        }
+
+        form label {
+            margin-bottom: 8px;
+        }
+
+        form textarea {
+            resize: vertical;
+            background: #000;
+            color: #fff;
+            border-color: #fff;
+            font-family: "Fira Code Retina", "Fira Code", monospace;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>Manual Upload</h1>
+    <div th:if="${message}">
+        <p th:text="${message}"></p>
+    </div>
+
+    <p class="lead">You can use this form to manually upload data to the backend.</p>
+    <form method="POST" enctype="multipart/form-data" action="/">
+        <label for="image">File to upload:</label>
+        <input type="file" name="image" id="image" />
+        <label for="json">JSON to upload:</label>
+        <textarea name="json" id="json" cols="50" rows="20" placeholder="Paste JSON here..."></textarea>
+        <input type="submit" value="Upload" />
+    </form>
+
+</div>
+</body>
+</html>
